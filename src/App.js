@@ -17,6 +17,21 @@ const App = () => {
   const [searchWords, setSearchWords] = useState(""); //''/ search words
   const [type, setType] = useState("");
 
+  //filter the list by words
+  const filterByWord = (lists, words) => {
+    const result = lists.filter((list) => {
+      const name = list.name.english.toLowerCase();
+
+      if (words) {
+        return name.includes(words.toLowerCase());
+      } else {
+        return true;
+      }
+    });
+
+    return result;
+  }
+ 
   //set the words user has typed in the search input
   const handleSearch = (e) => {
     setSearchWords(e.target.value);
@@ -33,7 +48,7 @@ const App = () => {
           />
           <Selector value={type} setValue={setType} list={dummyTypeList} />
         </FilterContainer>
-        <CardContainer lists={pokedexJSON} />
+        <CardContainer lists={filterByWord(pokedexJSON, searchWords)} />
       </Layout>
     </div>
   );
