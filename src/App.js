@@ -5,6 +5,7 @@ import Layout from "./components/Layout";
 import CardContainer from "./components/CardContainer";
 import SearchForm from "./components/SearchForm";
 import Selector from "./components/Selector";
+import FilterContainer from "./components/FilterContainer";
 
 //JSON data
 import pokedexJSON from "./pokedex";
@@ -24,12 +25,14 @@ const App = () => {
   return (
     <div className="App">
       <Layout>
-        <SearchForm
-          type="text"
-          placeholder="Search By Name"
-          handleChange={handleSearch}
-        />
-        <Selector value={type} setValue={setType} list={dummyTypeList} />
+        <FilterContainer>
+          <SearchForm
+            type="text"
+            placeholder="Search By Name"
+            handleChange={handleSearch}
+          />
+          <Selector value={type} setValue={setType} list={dummyTypeList} />
+        </FilterContainer>
         <CardContainer lists={pokedexJSON} />
       </Layout>
     </div>
