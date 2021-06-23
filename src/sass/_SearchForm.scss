@@ -1,0 +1,30 @@
+.search-form-container {
+  width: 100%;
+  margin-bottom: 10px;
+
+  @include desktop {
+    width: 35%;
+    margin-right: 16px;
+    margin-bottom: 0;
+  }
+  .search-form {
+    width: 100%;
+    border: 1px solid #808080;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 9px 18px;
+    box-sizing: border-box;
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+  }
+
+  input.search-form::placeholder {
+    color: #808080;
+    font-size: 13px;
+  }
+
+  input.search-form:focus {
+    outline: none;
+  }
+}
