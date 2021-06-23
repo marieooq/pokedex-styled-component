@@ -1,12 +1,15 @@
 import React from 'react'
 
+//utils
+import convertIntoThreeDigit from "../utils/convertIntoThreeDigit"
+
 const Card = ({list}) => {
     return (
       <div className="card">
         <div className="card-inner">
           <div className="card-profile-photo">
             <img
-              src={`${process.env.PUBLIC_URL}/thumbnails/001.png`}
+              src={`${process.env.PUBLIC_URL}/thumbnails/${convertIntoThreeDigit(list.id)}.png`}
               alt="profile"
             />
           </div>
