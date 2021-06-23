@@ -1,0 +1,14 @@
+/**
+ * Define SASS Partials & Modules:
+ * Partial files will be compiled into this one file.
+ * Modules are not outputted as CSS, but are available to use by this file and partials below.
+ */
+
+@import "modules/breakpoints";
+@import "modules/fonts";
+@import "modules/mixins";
+
+
+body{
+  font-family: 'Open Sans', sans-serif;
+}

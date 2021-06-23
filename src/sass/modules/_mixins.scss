@@ -1,0 +1,19 @@
+/* Mobile-first responsive layout */
+
+@mixin mobile {
+  @media (max-width: $mobile-max-width + "px") {
+    @content; // inserts content from where this is called
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $tablet-height + "px") and (max-width: $tablet-width + "px") and (min-height: $tablet-height + "px") {
+    @content; // inserts content from where this is called
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-width + "px") {
+    @content; // inserts content from where this is called
+  }
+}

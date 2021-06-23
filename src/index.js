@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import "./sass/style.scss"; /* This CSS file will import all the styles used by other Components */
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
