@@ -1,0 +1,16 @@
+.layout{
+    .layout-inner{
+        width: 90%;
+        margin: 0 auto;
+
+        @include desktop{
+            width: 80%;
+        }
+
+        .layout-page-title{
+            font-size: 20px;
+            font-weight: 600;
+            margin: 20px 0 16px;
+        }
+    }
+}
