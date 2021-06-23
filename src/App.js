@@ -11,11 +11,25 @@ import FilterContainer from "./components/FilterContainer";
 import pokedexJSON from "./pokedex";
 
 const App = () => {
-  const dummyTypeList = ['A', 'B', 'C'];
-
   //state
   const [searchWords, setSearchWords] = useState(""); //''/ search words
-  const [type, setType] = useState("");
+  const [type, setType] = useState("All Types");
+
+  //generate type selector
+  const generateTypeSelectList = (list) => {
+    let originalArray = ["All Types"];
+
+    list.forEach((val) => {
+      if (val.type) {
+        val.type.forEach((type) => originalArray.push(type));
+      }
+    });
+
+    //remove duplicate values, if any, and extract only unique values.
+    const resultArray = Array.from(new Set(originalArray));
+
+    return resultArray;
+  };
 
   //filter the list by words
   const filterByWord = (lists, words) => {
@@ -30,8 +44,23 @@ const App = () => {
     });
 
     return result;
-  }
- 
+  };
+
+  //filter the list by type
+  const filterByType = (lists, type) => {
+    let result;
+
+    if (type === "All Types") {
+      result = lists;
+    } else {
+      result = lists.filter((list) => {
+        return list.type.includes(type);
+      });
+    }
+
+    return result;
+  };
+
   //set the words user has typed in the search input
   const handleSearch = (e) => {
     setSearchWords(e.target.value);
@@ -46,9 +75,15 @@ const App = () => {
             placeholder="Search By Name"
             handleChange={handleSearch}
           />
-          <Selector value={type} setValue={setType} list={dummyTypeList} />
+          <Selector
+            value={type}
+            setValue={setType}
+            list={generateTypeSelectList(pokedexJSON)}
+          />
         </FilterContainer>
-        <CardContainer lists={filterByWord(pokedexJSON, searchWords)} />
+        <CardContainer
+          lists={filterByType(filterByWord(pokedexJSON, searchWords), type)}
+        />
       </Layout>
     </div>
   );
