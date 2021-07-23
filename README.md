@@ -25,3 +25,4 @@ You can find any types of Pokemons in this app!
 - React
 - HTML
 - SASS
+# pokedex-styled-component
