@@ -1,23 +1,24 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 //components
-import Layout from "./components/Layout";
-import CardContainer from "./components/CardContainer";
-import SearchForm from "./components/SearchForm";
-import Selector from "./components/Selector";
-import FilterContainer from "./components/FilterContainer";
+import Layout from './components/Layout';
+import CardContainer from './components/CardContainer';
+import SearchForm from './components/SearchForm';
+import SearchBar from './components/SearchBar';
+import Selector from './components/Selector';
+import FilterContainer from './components/FilterContainer';
 
 //JSON data
-import pokedexJSON from "./pokedex";
+import pokedexJSON from './pokedex';
 
 const App = () => {
   //state
-  const [searchWords, setSearchWords] = useState(""); //''/ search words
-  const [type, setType] = useState("All Types");
+  const [searchWords, setSearchWords] = useState(''); //''/ search words
+  const [type, setType] = useState('All Types');
 
   //generate type selector
   const generateTypeSelectList = (list) => {
-    let originalArray = ["All Types"];
+    let originalArray = ['All Types'];
 
     list.forEach((val) => {
       if (val.type) {
@@ -50,7 +51,7 @@ const App = () => {
   const filterByType = (lists, type) => {
     let result;
 
-    if (type === "All Types") {
+    if (type === 'All Types') {
       result = lists;
     } else {
       result = lists.filter((list) => {
@@ -70,6 +71,7 @@ const App = () => {
     <div className="App">
       <Layout>
         <FilterContainer>
+          <SearchBar />
           <SearchForm
             type="text"
             placeholder="Search By Name"
@@ -87,6 +89,6 @@ const App = () => {
       </Layout>
     </div>
   );
-}
+};
 
 export default App;
